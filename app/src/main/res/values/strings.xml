@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="bmi"><b> Body mass index (BMI)</b> is a value derived from the mass (weight) and height of a person. The BMI is defined as the body mass divided by the square of the body height, and is expressed in units of kg/m2, resulting from mass in kilograms and height in metres.The BMI may be determined using a table or chart which displays BMI as a function of mass and height using contour lines or colours for different BMI categories, and which may use other units of measurement (converted to metric units for the calculation).</string>
+    <string name="about">BMI Calculator is free app that allows you to monitor BMI and percentage of fat in your body. Ideal weight - app calculates the ideal weight you should gain.
+To calculate it app uses the D. R. Miller formula. Body fat percentage is estimated from BMI by formula derived by Deurenberg and co-workers. All measurements use information about your body: gender, age, height and weight. App is designed for people of different ages and supports for both metric and imperial.
+                                  Track your BMI and stay healthy!</string>
+    <string name="developer"><b>Developer Name:</b> Omdeep
+
+                                                  <b>Developer Profession:</b> Android Studio Developer
+
+                                                        <b>Qualification:</b> B.Tech CSE
+
+                                                         <b>Company Name:</b> Chetu</string>
+    <string name="diet">A balanced diet is a diet that contains differing kinds of foods in certain quantities and proportions so that the requirement for calories, proteins, minerals, vitamins and alternative nutrients is adequate and a small provision is reserved for additional nutrients to endure the short length of leanness. There are seven essential factors for a balanced diet: <I>carbs, protein, fat, fibre, vitamins, minerals and water.</I>
+</string>
+    <string name="exercise">Exercise daily for at least an hour. You do not have to kill yourself from running, jogging, etc., but you should have some sort of moderate physical activity in your everyday life. If you are looking to shed a few pounds fast, do a higher-level intensity workout. For example, go on a walk at a brisk pace for an hour</string>
+    <string name="social">Social media can boost your motivation and keep you on track. Announce your fitness goals on Facebook, Twitter, or Instagram. You will be surprised how many people help. They will rally behind you, offer tips, and steer you away from missing a workout.</string>
+    <string name="challenge">Step it up. Work out 5 minutes longer. Raise the incline level on your treadmill. Go for a few extra repetitions. It makes a difference. We should always be pushing ourselves. But if it feels too intense or you don’t have enough breath to hold a conversation, slow down.</string>
+    <string name="positivity">Positivity is the practice or tendency to be positive or optimistic in life. When we are positive, we engage in positive thinking, have positive emotions, and engage in positive behaviors like kindness and generosity.</string>
+    <string name="omdeep">Developed by Omdeep</string>
+    <string name="select_gender">Select Gender: -</string>
+</resources>
