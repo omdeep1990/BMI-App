@@ -6,18 +6,25 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText etw_text;
     Button  clear , submit;
     TextView  res2;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +50,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eth_text = findViewById(R.id.hieght);
         etw_text = findViewById(R.id.wight);
         submit = findViewById(R.id.submit);
+        spinner = findViewById(R.id.spinner_item);
 
         res2 = findViewById(R.id.res2);
         clear = findViewById(R.id.clearBtn);
         submit.setOnClickListener(this);
         clear.setOnClickListener(this);
+        clear.setVisibility(View.INVISIBLE);
+        res2.setVisibility(View.INVISIBLE);
+
+        List<String> list=new ArrayList<String>();
+        list.add("Select Units");
+        list.add("MKS");
+        list.add("FPS");
+
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,list);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spinner.setSelection(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 
 
     @Override
     public void onClick(View v) {
+
         int id = v.getId();
         switch (v.getId())
         {
             case R.id.submit:
+                submit.setVisibility(View.GONE);
+                clear.setVisibility(View.VISIBLE);
+                res2.setVisibility(View.VISIBLE);
                 String str1 =  eth_text.getText().toString();
                 String str2 = etw_text.getText().toString();
 
@@ -64,15 +99,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // condition
 
                 if(TextUtils.isEmpty(str1)){
+                    res2.setVisibility(View.INVISIBLE);
+                    clear.setVisibility(View.INVISIBLE);
+                    submit.setVisibility(View.VISIBLE);
                     eth_text.setError("Please enter your height");
                     eth_text.requestFocus();
                     return;
                 }
                 if(TextUtils.isEmpty(str2)){
+                    res2.setVisibility(View.INVISIBLE);
+                    clear.setVisibility(View.INVISIBLE);
+                    submit.setVisibility(View.VISIBLE);
                     etw_text.setError("Please enter your weight");
                     etw_text.requestFocus();
                     return;
                 }
+
+                if(radioGroup.getCheckedRadioButtonId()==-1){
+                    clear.setVisibility(View.INVISIBLE);
+                    submit.setVisibility(View.VISIBLE);
+                    Toast.makeText(MainActivity.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                return;}
 
 
 
@@ -84,10 +131,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.clearBtn:
+                clear.setVisibility(View.INVISIBLE);
+                submit.setVisibility(View.VISIBLE);
                 eth_text.setText(null);
                 etw_text.setText(null);
                 res2.setText(null);
-
+                radioGroup.clearCheck();
 
         }
     }
@@ -156,7 +205,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Challenge selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item3:
-                startActivity(new Intent(MainActivity.this, IntentActivity2.class));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://developer.android.com/reference/android/content/Intent"));
+                startActivity(intent);
                 Toast.makeText(this, "About Us selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item4:

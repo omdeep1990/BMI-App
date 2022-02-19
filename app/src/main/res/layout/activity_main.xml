@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/bmi1"></ImageView>
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="190sp"
         android:layout_marginLeft="20dp"
         android:gravity="left"
         android:textStyle="bold"
         android:text="@string/select_gender"
         android:textSize="25sp"
+        android:layout_marginBottom="30dp"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="145dp" />
@@ -41,6 +49,7 @@
             android:textStyle="bold"
             android:checked="true"
             android:layout_weight ="0.5"
+            android:layout_marginTop="200sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -51,66 +60,122 @@
             android:text="Female"
             android:textStyle="bold"
             android:checked="true"
+            android:layout_marginTop="200sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RadioGroup>
-    <EditText
-
-        android:inputType="numberDecimal"
-        android:id="@+id/hieght"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="40dp"
-        android:textStyle="italic"
-        android:hint="Enter your height in cm"
-        android:maxLength="3"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/spinner_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Units: "
+            android:layout_marginTop="280dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:layout_marginLeft="50dp"/>
 
-    <EditText
-        android:inputType="numberDecimal"
-        android:id="@+id/wight"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="40dp"
-        android:textStyle="italic"
-        android:hint="Enter your weight in kg"
-        android:maxLength="3"
+        <Spinner
+            android:id="@+id/spinner_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280dp"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/til_hieght">
+        <EditText
+
+            android:inputType="numberDecimal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/hieght"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="340dp"
+            android:textStyle="italic"
+            android:background="@drawable/custom_input"
+            android:hint="Enter your height in cm"
+            android:maxLength="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            android:textSize="23dp"
+            app:counterTextColor="@color/purple_200"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/wight"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="420dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/custom_input"
+            android:hint="Enter your weight in kg"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:textSize="23dp"
+            android:textStyle="italic"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:counterTextColor="@color/purple_200"
+            app:endIconMode="clear_text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-
         android:id="@+id/submit"
-        android:layout_width="211dp"
-        android:layout_height="40dp"
+        style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:background="@color/purple_700"
-        android:text="Calculate BMI" />
-
-
-
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="530dp"
+        android:layout_marginRight="90dp"
+        android:background="@drawable/button_rounded"
+        android:text="Calculate BMI"
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/clearBtn"
-        android:layout_marginTop="40dp"
-        android:text="Clear"
-        android:background="@color/black"
+        style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_width="100dp"
-        android:layout_height="40dp"/>
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="530dp"
+        android:layout_marginRight="90dp"
+        android:background="@drawable/button_rounded"
+        android:text="Clear"
+        android:textSize="18dp" />
 
 
     <TextView
         android:id="@+id/res2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
         android:layout_gravity="center"
         android:text="Bmi Values  "
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
         android:textColor="@color/black"
+        android:layout_below="@+id/clearBtn"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="145dp" />
-</LinearLayout>
+</RelativeLayout>

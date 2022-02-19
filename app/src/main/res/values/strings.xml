@@ -5,11 +5,8 @@
 To calculate it app uses the D. R. Miller formula. Body fat percentage is estimated from BMI by formula derived by Deurenberg and co-workers. All measurements use information about your body: gender, age, height and weight. App is designed for people of different ages and supports for both metric and imperial.
                                   Track your BMI and stay healthy!</string>
     <string name="developer"><b>Developer Name:</b> Omdeep
-
                                                   <b>Developer Profession:</b> Android Studio Developer
-
                                                         <b>Qualification:</b> B.Tech CSE
-
                                                          <b>Company Name:</b> Chetu</string>
     <string name="diet">A balanced diet is a diet that contains differing kinds of foods in certain quantities and proportions so that the requirement for calories, proteins, minerals, vitamins and alternative nutrients is adequate and a small provision is reserved for additional nutrients to endure the short length of leanness. There are seven essential factors for a balanced diet: <I>carbs, protein, fat, fibre, vitamins, minerals and water.</I>
 </string>

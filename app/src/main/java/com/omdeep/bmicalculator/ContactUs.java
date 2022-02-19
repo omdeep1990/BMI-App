@@ -21,16 +21,6 @@ public class ContactUs extends AppCompatActivity implements View.OnClickListener
     private String[] PERMISSIONS = new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityContactUsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        binding.dial.setOnClickListener(this);
-        binding.call.setOnClickListener(this);
-    }
-
-    @Override
     public void onClick(View view) {
 
         switch (view.getId()){
@@ -48,7 +38,28 @@ public class ContactUs extends AppCompatActivity implements View.OnClickListener
                     ActivityCompat.requestPermissions(ContactUs.this, PERMISSIONS, 1);
                 }
                 break;
+            case R.id.emailus:
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String());
+                email.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+//need this to prompts email client only
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+            //case R.id.suggestion:
+
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityContactUsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.dial.setOnClickListener(this);
+        binding.call.setOnClickListener(this);
+        binding.emailus.setOnClickListener(this);
     }
 
     private void doCall() {
@@ -68,6 +79,10 @@ public class ContactUs extends AppCompatActivity implements View.OnClickListener
                 Toast.makeText(getApplicationContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void btn_showDialog(View view) {
+
     }
 }
 

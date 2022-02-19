@@ -7,51 +7,66 @@
     tools:context=".ContactUs"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/dial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dial"
-            android:layout_marginLeft="10dp"
-            android:padding="15dp"
-            android:layout_margin="20dp"
-            />
-
-        <Button
-            android:id="@+id/call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Call"
-            android:layout_marginLeft="10dp"
-            android:padding="15dp"
-            android:layout_margin="20dp"
-            />
-
-        <Button
-            android:id="@+id/emailus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:layout_marginLeft="10dp"
-            android:padding="15dp"
-            android:layout_margin="20dp"
-            />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/suggestion"
-        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="center"
-        android:padding="15dp"
-        android:text="Suggestion Box" />
+        android:elevation="40dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="15dp"
+        app:cardBackgroundColor="@color/light_green"
+        app:cardCornerRadius="50dp">
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp">
+
+            <Button
+                android:id="@+id/dial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_rounded"
+                android:padding="15dp"
+                android:text="Dial" />
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_rounded"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="Call" />
+
+            <Button
+                android:id="@+id/emailus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_rounded"
+                android:padding="15dp"
+                android:text="Email" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/suggestion"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/button_rounded"
+            android:onClick="btn_showDialog"
+            android:padding="15dp"
+            android:text="Suggestion Box" />
+
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
